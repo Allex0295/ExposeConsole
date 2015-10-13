@@ -54,8 +54,8 @@ int main(void) {
 		touchRead(&touchXY);
 		iprintf("\x1b[13;0Hx=%04X,%04X\n", touchXY.rawx, touchXY.px);
 		iprintf("y=%04X,%04X", touchXY.rawy, touchXY.py);
-		if ((touchXY.px>0x90)&&(touchXY.px!=0x00)) iprintf("\x1b[6;14H -->");
-		if ((touchXY.px<0x90)&&(touchXY.px!=0x00)) iprintf("\x1b[6;14H <--");
+		if ((touchXY.px>0x7F)&&(touchXY.px!=0x00)) iprintf("\x1b[6;14H -->");
+		if ((touchXY.px<0x7F)&&(touchXY.px!=0x00)) iprintf("\x1b[6;14H <--");
 		if ((touchXY.px==0x00)&&(touchXY.py==0x00)) iprintf("\x1b[6;14H    ");
 		testInput ();
 	}
