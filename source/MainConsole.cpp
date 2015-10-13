@@ -1,4 +1,3 @@
-//TEST GITHUB
 #include <nds.h>
 #include <stdio.h>
 //Commande a ajouter au debut pour compiler
@@ -24,7 +23,7 @@ void testInput(){	//Fonction de test des touches
 	else if(keysHeld() & KEY_SELECT)
 		iprintf("\x1b[11;0HAppui SELECT");	//Bouton SELECT
 	else{
-		int i;								//Effaçage zone
+		int i;								//EffaÃ§age zone
 		for(i=4;i<=11;i++){
 			iprintf("\x1b[%u;0H            ",i);
 		}
