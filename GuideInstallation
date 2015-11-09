@@ -1,0 +1,68 @@
+------------------------------------------------------------------------
+Guide pour l'installation de devkitPro-NintendoDS sous Linux
+------------------------------------------------------------------------
+
+////////////////////////// AVANT DE COMMENCER /////////////////////////
+Pour commencer, la première chose à faire sur Ubuntu pour s'assurer d'avoir tout les outils minimum pour un système de développement est de tapper la commande:
+
+	$ sudo apt-get install build-essentials
+
+Cette commande installera le package build-essentials (ou verifiera si la version déjà installée est à jour) qui correspond au compilateur C, C++, make et aux autres dépendances.
+
+
+//////////////////////////// TELECHARGEMENT ///////////////////////////
+Les différentes archives nécessaires sont disponibles sur la page sourceforge de devkitPro:
+
+	http://sourceforge.net/projects/devkitpro/files/
+
+Les archives principales à installer sont:  /!\ (ne pas prendre les versions marquées "src" quand elles sont disponibles) /!\
+	
+	- devkitARM	(prendre la version correspondant à votre système d'exploitation)
+	- default arm7	
+	- dswifi
+	- libfat
+	- libnds
+	- nds-examples
+
+
+///////////////////////////// INSTALLATION ////////////////////////////
+Pour procéder à l'installation, entrez les commandes suivantes: 
+	
+	$ sudo mkdir -p /usr/local/devkitPro
+	$ cd /usr/local/devkitPro/
+	$ cp /[destination des archives]/devkitARM.tar.bz2 ./
+	$ tar -jxvf devkitARM.tar.bz2 
+...
+	$ mkdir libnds
+	$ cd libnds
+	$ cp /[destination des archives]/libnds.tar.bz2 ./
+	$ tar -jxvf libnds.tar.bz2
+	$ cp /[destination des archives]/default_arm7.tar.bz2 ./
+	$ tar -jxvf default_arm7.tar.bz2	
+...
+	$ cd [repertoire devkitPro]
+	$ mkdir libfat
+	$ cd libfat 
+	$ cp /[destination des archives]/libfat-nds.tar.bz2  ./
+	$ tar -jxvf libfat-nds.tar.bz2 
+...
+	$ cd [repertoire devkitPro]
+	$ mkdir dswifi
+	$ cd dswifi
+	$ cp /[destination des archives]/dswifi.tar.bz2 ./
+	$ tar -jxvf dswifi.tar.bz2
+...
+	$ cd [repertoire devkitPro]
+	$ mkdir examples
+	$ cd examples
+	$ cp /[destination des archives]/nds-examples.tar.bz2  ./
+	$ tar -jxvf nds-examples.tar.bz2 
+
+Après avoir créé le repertoire de devkitPro, il est nécessaire d'entrer les commandes suivantes dans le terminal pour pouvoir compiler et créer les fichiers de l'application:
+
+	$ export DEVKITPRO=/usr/local/devkitPro
+	$ export DEVKITARM=/usr/local/devkitPro/devkitARM/
+
+Cependant, ces règlages seront effectifs uniquement sur la session actuelle. Pour que ceux-ci soient permanents, il faut les ajouter dans le fichier "~/.bashrc". Ces lignes peuvent être ajoutées au fichier avec cette commande:
+	
+	$ sudo gedit ~/.bashrc
